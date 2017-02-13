@@ -34,14 +34,17 @@
                 // move the rectangle to the left so that it crosses the border of the empty wall of the two cells
                 centerX = centerX - start.radius + height;
             } else if (start.x < end.x) {
+                // is the first cell to the right of the second cell (Note: it could be neither if it is above or below)
                 // change this square to be a horizontal rectangle
                 width = start.radius;
                 // there is no need to move this, as x,y starts at the center and we've grown this rectangle
                 // to the right
             } else if (start.y > end.y) {
+                // is the first cell below the second cell
                 height = start.radius;
                 centerY = centerY - start.radius + width;
             } else if (start.y < end.y) {
+              // is the first cell above the second cell (Note: it could be neither if it is to the right or left)
                 height = start.radius;
             }
             // show the trail as an animation
