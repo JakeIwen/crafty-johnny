@@ -65,6 +65,7 @@ window.onload = function () {
 
     click = function () {
         // on click, use dfs to search our maze
+
         var stack = dfsSearch(startCell, this),
             neighbor;
         if (stack.length) {
@@ -77,15 +78,15 @@ window.onload = function () {
                 startCell = neighbor;
             }
         }
+
     };
     // build the grid for our DFS and rendering
     for (y = 0; y < yCount; y++) {
         // row information is used to assign neighbors
         currentRow = [];
         for (x = 0; x < xCount; x++) {
-            id = x * y + y;
             cell = Crafty.e("2D, Mouse, Cell")
-                .attr({id: id, x: x * radius, y:  y * radius})
+                .attr({id: ++id, x: x * radius, y:  y * radius})
                 .bind('MouseDown', click);
             currentRow.push(cell);
             grid.push(cell);
@@ -109,6 +110,7 @@ window.onload = function () {
         // clear previous cell to prevent wrapped neighbors
         previousCell = false;
     }
+    id = 0;
 
     // use dfs to create our maze
     function dfsCreate(startCell) {
@@ -138,6 +140,7 @@ window.onload = function () {
         }
     }
     dfsCreate(grid[Math.floor(Math.random() * grid.length)]);
+    console.log(grid);
     for (g = 0; g < grid.length; g++) {
         grid[g].drawWalls();
     }

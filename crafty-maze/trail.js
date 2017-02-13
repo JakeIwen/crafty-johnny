@@ -14,8 +14,8 @@
             // starting cell. this could be changed to draw an arrow, for example, in the direct of "end"
             var centerX = start.x + (start.radius / 2),
                 centerY = start.y + (start.radius / 2),
-                width = Math.ceil(start.radius / 6),
-                height = Math.ceil(start.radius/ 6),
+                width = Math.ceil(start.radius / 10),
+                height = Math.ceil(start.radius/ 10),
                 t;
             // cells are aligned as such:
             // | x, y |
@@ -32,25 +32,18 @@
                 // change this square to be a horizontal rectangle
                 width = start.radius;
                 // move the rectangle to the left so that it crosses the border of the empty wall of the two cells
-                centerX = centerX - start.radius;
-            }
-            // is the first cell to the right of the second cell (Note: it could be neither if it is above or below)
-            if (start.x < end.x) {
+                centerX = centerX - start.radius + height;
+            } else if (start.x < end.x) {
                 // change this square to be a horizontal rectangle
                 width = start.radius;
                 // there is no need to move this, as x,y starts at the center and we've grown this rectangle
                 // to the right
-            }
-            // is the first cell below the second cell
-            if (start.y > end.y) {
+            } else if (start.y > end.y) {
                 height = start.radius;
-                centerY = centerY - start.radius;
-            }
-            // is the first cell above the second cell (Note: it could be neither if it is to the right or left)
-            if (start.y < end.y) {
+                centerY = centerY - start.radius + width;
+            } else if (start.y < end.y) {
                 height = start.radius;
             }
-
             // show the trail as an animation
             if (this.slow) {
                 timeout += 25;
