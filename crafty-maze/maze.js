@@ -113,8 +113,6 @@ window.onload = function () {
         // clear previous cell to prevent wrapped neighbors
         previousCell = false;
     }
-    id = 0;
-
     // use dfs to create our maze
     function dfsCreate(startCell) {
         var currentCell = startCell,
