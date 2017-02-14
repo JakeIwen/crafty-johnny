@@ -1,11 +1,7 @@
 (function (Crafty) {
     "use strict";
     var wallWidth = 0.5,
-<<<<<<< HEAD
         radius = 16;
-=======
-        radius = 32;
->>>>>>> 4d5b9f8356bf18cd258b4133fca8e0aa3f67a9a6
     // our Cell component. Consists of four walls, positional information, and
     // information needed for DFS
     Crafty.c("Cell", {
