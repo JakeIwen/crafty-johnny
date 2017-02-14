@@ -15,7 +15,7 @@
             var centerX = start.x + (start.radius / 2),
                 centerY = start.y + (start.radius / 2),
                 width = Math.ceil(start.radius / 6),
-                height = Math.ceil(start.radius/ 6),
+                height = Math.ceil(start.radius / 6),
                 t;
             // cells are aligned as such:
             // | x, y |

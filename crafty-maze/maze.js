@@ -3,7 +3,7 @@ window.onload = function () {
     var width = 800,
         height = 600,
         radius = 16,
-        xCount = Math.floor(width / radius),
+        xCount = Math.floor(width / radius) - 1,
         yCount = Math.floor(height / radius),
         x,
         y,

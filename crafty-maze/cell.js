@@ -1,6 +1,6 @@
 (function (Crafty) {
     "use strict";
-    var wallWidth = 0.5,
+    var wallWidth = 1,
         radius = 16;
     // our Cell component. Consists of four walls, positional information, and
     // information needed for DFS
@@ -69,22 +69,22 @@
             if (this.left) {
                 this.walls.left = Crafty.e("2D, Canvas, Color")
                     .color(this.color)
-                    .attr({x: this.x + wallWidth, y: this.y, w: wallWidth, h: radius});
+                    .attr({x: this.x, y: this.y, w: wallWidth, h: radius + wallWidth});
             }
             if (this.top) {
                 this.walls.top = Crafty.e("2D, Canvas, Color")
                     .color(this.color)
-                    .attr({x: this.x, y: this.y + wallWidth, w: radius, h: wallWidth});
+                    .attr({x: this.x, y: this.y, w: radius + wallWidth, h: wallWidth});
             }
             if (this.right) {
                 this.walls.right = Crafty.e("2D, Canvas, Color")
                     .color(this.color)
-                    .attr({x: this.x + radius - wallWidth, y: this.y, w: wallWidth, h: radius});
+                    .attr({x: this.x + radius, y: this.y, w: wallWidth, h: radius + wallWidth});
             }
             if (this.bottom) {
                 this.walls.bottom = Crafty.e("2D, Canvas, Color")
                     .color(this.color)
-                    .attr({x: this.x, y: this.y + radius - wallWidth, w: radius, h: wallWidth});
+                    .attr({x: this.x, y: this.y + radius, w: radius + wallWidth, h: wallWidth});
             }
         },
         drawNode: function (color) {
